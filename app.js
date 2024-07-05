@@ -20,6 +20,11 @@ app.use(express.static('docs'));
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
 
+// Serve the index.html file when accessing the root URL
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'docs', 'index.html'));
+});
+
 // Route to handle form submissions
 app.post('/get-movie', async (req, res) => {
     const { query, type, year, plot } = req.body;
