@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Movie Database Search</title>
+</head>
+<body>
+    <h1>Search for Movies</h1>
+    <form id="movieForm">
+        <input type="text" id="query" name="query" placeholder="Enter movie title or ID" required>
+        <select id="type" name="type">
+            <option value="">Any</option>
+            <option value="movie">Movie</option>
+            <option value="series">Series</option>
+            <option value="episode">Episode</option>
+        </select>
+        <input type="text" id="year" name="year" placeholder="Year (optional)">
+        <select id="plot" name="plot">
+            <option value="short">Short</option>
+            <option value="full">Full</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    <div id="result"></div>
+    <script src="script.js"></script>
+</body>
+</html>

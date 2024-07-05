@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#result .movie {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#result .movie img {
+    margin-right: 10px;
+    max-width: 100px;
+}
