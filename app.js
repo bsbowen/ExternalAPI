@@ -15,7 +15,7 @@ const corsOptions = {
 app.use(cors(corsOptions)); // Use CORS middleware
 
 // Middleware to serve static files (HTML, CSS, JS)
-app.use(express.static('public'));
+app.use(express.static('docs'));
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
