@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -14,7 +15,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions)); // Use CORS middleware
 
-// Middleware to serve static files (HTML, CSS, JS)
+// Middleware to serve static files (HTML, CSS, JS) from the 'docs' folder
 app.use(express.static('docs'));
 
 // Middleware to parse form data
@@ -28,7 +29,9 @@ app.get('/', (req, res) => {
 // Route to handle form submissions
 app.post('/get-movie', async (req, res) => {
     const { query, type, year, plot } = req.body;
-    const apiKey = '4540fbd917msh732e30ebb2cb1f8p1260c9jsnf9e27ec6465d';
+    console.log('Received request with:', { query, type, year, plot }); // Log the request data
+
+    const apiKey = '4540fbd917msh732e30ebb2cb1f8p1260c9jsnf9e27ec6465d'; // Your API key
     const apiHost = 'movie-database-alternative.p.rapidapi.com';
     const apiUrl = 'https://movie-database-alternative.p.rapidapi.com/';
 
@@ -50,10 +53,11 @@ app.post('/get-movie', async (req, res) => {
 
     try {
         const response = await axios.request(options);
+        console.log('API response:', response.data); // Log the API response
         const data = response.data;
-        // Send the data back to the client
         res.json(data);
     } catch (error) {
+        console.error('Error retrieving data from API:', error); // Log the error
         res.status(500).send('Error retrieving data from API');
     }
 });

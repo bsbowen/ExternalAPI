@@ -19,7 +19,7 @@ document.getElementById('movieForm').addEventListener('submit', async (event) =>
                 query: query, // Add the query parameter
                 type: type,   // Add the type parameter
                 year: year,   // Add the year parameter
-                plot: plot    // Add the plot parameter
+                plot: plot   // Add the plot parameter
             }),
         });
 
